@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="Anurag Pal - Data Analyst, Power BI Specialist & MIS Analyst Portfolio. 4.5+ years experience in SQL, Python, ETL pipelines, and executive BI reporting.">
+  <title>Anurag Pal | Data Analyst & Power BI Specialist Portfolio</title>
+  
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Caveat:wght@600;700&family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Fixed Canvas for 240-Frame Smooth Scroll Animation -->
+  <div class="canvas-container" id="canvasContainer">
+    <canvas id="canvas"></canvas>
+    <div class="canvas-vignette"></div>
+  </div>
+
+  <!-- Minimalist Loading Overlay -->
+  <div class="loader-overlay" id="loaderOverlay">
+    <div class="loader-content">
+      <div class="loader-title">ANURAG PAL</div>
+      <div class="loader-sub">PORTFOLIO EXPERIENCE</div>
+      <div class="loader-bar-track">
+        <div class="loader-bar-fill" id="loaderFill"></div>
+      </div>
+      <div class="loader-status" id="loaderText">Loading Frames 0%</div>
+    </div>
+  </div>
+
+  <!-- Toast Notification System -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-brand">
+      <span class="nav-dot"></span>
+      <span class="nav-title">ANURAG PAL</span>
+      <span class="nav-role">DATA ANALYST & BI SPECIALIST</span>
+    </div>
+    
+    <nav class="nav-links">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#certifications" class="nav-link">Certifications</a>
+      <a href="#skills-process" class="nav-link">Skills & Process</a>
+      <a href="#experience" class="nav-link">Experience</a>
+      <a href="#testimonials" class="nav-link">Testimonials</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+    
+    <div class="nav-actions">
+      <!-- GitHub Nav Button -->
+      <a href="https://github.com/trulyanu" target="_blank" rel="noopener noreferrer" class="nav-icon-link" title="GitHub: trulyanu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+        <span>trulyanu</span>
+      </a>
+
+      <div class="availability-pill">
+        <span class="status-pulse"></span>
+        <span>OPEN TO WORK</span>
+      </div>
+
+      <button class="nav-cta-btn" id="navEmailBtn" title="Copy Email">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        <span>Copy Email</span>
+      </button>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <div class="mobile-nav-header">
+      <div class="nav-brand">
+        <span class="nav-dot"></span>
+        <span class="nav-title">ANURAG PAL</span>
+      </div>
+      <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close Menu">&times;</button>
+    </div>
+    
+    <nav class="mobile-nav-links">
+      <a href="#about" class="mobile-nav-link">About</a>
+      <a href="#projects" class="mobile-nav-link">Projects</a>
+      <a href="#certifications" class="mobile-nav-link">Certifications</a>
+      <a href="#skills-process" class="mobile-nav-link">Skills &amp; Process</a>
+      <a href="#experience" class="mobile-nav-link">Experience</a>
+      <a href="#testimonials" class="mobile-nav-link">Testimonials</a>
+      <a href="#contact" class="mobile-nav-link">Contact</a>
+    </nav>
+
+    <div class="mobile-nav-footer">
+      <a href="https://github.com/trulyanu" target="_blank" rel="noopener noreferrer" class="mobile-git-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        <span>GitHub: @trulyanu</span>
+      </a>
+      <button class="mobile-copy-btn" id="mobileCopyEmailBtn">Copy Email</button>
+    </div>
+  </div>
+
+  <!-- Main Scrollable Content -->
+  <main class="page-wrapper">
+
+    <!-- HERO SECTION (Matching Reference Screenshot Poster Design) -->
+    <section class="hero-section" id="about">
+      <!-- Giant Crimson Red PORTFOLIO Backdrop -->
+      <div class="hero-bg-portfolio-text" aria-hidden="true">PORTFOLIO</div>
+
+      <div class="hero-grid">
+        <!-- Left Column: Intro, Name, Bio, Availability -->
+        <div class="hero-left">
+          <div class="hero-greeting">
+            <span class="handwritten-accent">Hello, I'm</span>
+            <h1 class="hero-name">ANURAG PAL</h1>
+            <div class="hero-badge-title">DATA ANALYST &amp; POWER BI SPECIALIST</div>
+          </div>
+
+          <p class="hero-bio">
+            Data Analyst with <strong>4.5+ years</strong> bridging database operations, SQL query tuning, Python data cleansing, and executive BI reporting. Proven expertise in architecting dimensional models, optimizing sluggish relational queries, and replacing manual spreadsheet tracking with responsive, automated analytics solutions.
+          </p>
+
+          <div class="hero-meta-row">
+            <div class="meta-pill">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ff3344" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 12 8"></polygon></svg>
+              <span>BANGALORE • AVAILABLE WORLDWIDE</span>
+            </div>
+            <a href="https://github.com/trulyanu" target="_blank" rel="noopener noreferrer" class="meta-pill git-pill">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              <span>GITHUB: TRULYANU</span>
+            </a>
+          </div>
+
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn-primary">
+              <span>Explore Projects</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a href="https://github.com/trulyanu" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              <span>GitHub Profile</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Center Column is visual spacing for the subject video in the canvas -->
+        <div class="hero-center-spacer"></div>
+
+        <!-- Right Column: Stats Stack & Quote Bubble (Exact Match with Screenshot) -->
+        <div class="hero-right">
+          <div class="floating-quote-bubble">
+            <div class="quote-sparkle">✦</div>
+            <p>Turning transactional data into powerful, automated executive intelligence.</p>
+          </div>
+
+          <div class="stats-stack">
+            <div class="stat-card">
+              <div class="stat-number">4.5<span>+</span></div>
+              <div class="stat-label">YEARS<br>EXPERIENCE</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-number">80<span>K+</span></div>
+              <div class="stat-label">DAILY RECORDS<br>MONITORED</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-number">200<span>+</span></div>
+              <div class="stat-label">DATA TICKETS<br>RESOLVED</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-number">25<span>%</span></div>
+              <div class="stat-label">QUERY RUNTIME<br>REDUCTION</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Down Indicator -->
+      <div class="hero-scroll-indicator">
+        <span class="scroll-label">SCROLL TO SCRUB &amp; EXPLORE</span>
+        <div class="scroll-mouse-icon">
+          <div class="scroll-wheel-dot"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: SELECTED PROJECTS & GITHUB REPOSITORIES -->
+    <section class="section-container projects-section" id="projects">
+      <div class="section-header-row">
+        <div class="section-title-wrap">
+          <span class="section-tag-small">PORTFOLIO &amp; GITHUB REPOSITORIES</span>
+          <h2 class="section-headline">FEATURED ANALYTICS &amp; BI SOLUTIONS</h2>
+        </div>
+        <a href="https://github.com/trulyanu?tab=repositories" target="_blank" rel="noopener noreferrer" class="section-action-link">
+          VIEW ALL REPOSITORIES ON GITHUB <span class="arrow">→</span>
+        </a>
+      </div>
+
+      <!-- Project Filter Pills (Horizontally scrollable on mobile) -->
+      <div class="project-filter-row">
+        <button class="filter-pill active" data-filter="all">All Projects (6)</button>
+        <button class="filter-pill" data-filter="bi">Power BI &amp; Tableau</button>
+        <button class="filter-pill" data-filter="python">Python &amp; ETL</button>
+        <button class="filter-pill" data-filter="sql">SQL &amp; Database Tuning</button>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 01: Spotify Streaming Analytics -->
+        <article class="project-card" data-category="bi">
+          <div class="project-image-wrapper">
+            <img src="assets/project-spotify.jpg" alt="Spotify Streaming Analytics Dashboard" class="project-img" loading="lazy">
+            <div class="project-overlay-badge">POWER BI • DAX</div>
+          </div>
+          <div class="project-content">
+            <div class="project-header-bar">
+              <span class="project-number">01</span>
+              <span class="project-category">MUSIC INTELLIGENCE</span>
+            </div>
+            <h3 class="project-title">Spotify Streaming Analytics &amp; Track Intelligence</h3>
+            <p class="project-description">
+              Organized 10,000+ raw music catalog records into a multi-table star schema. Authored 20+ custom DAX measures (running averages, popularity distributions, explicit ratios) with dynamic slicers to analyze listening trends.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Power BI</span>
+              <span class="tag">DAX Measures</span>
+              <span class="tag">Star Schema</span>
+              <span class="tag">Excel Power Pivot</span>
+            </div>
+            <div class="project-card-footer">
+              <a href="https://github.com/trulyanu" target="_blank" rel="noopener noreferrer" class="project-repo-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repository</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 02: HR Attrition Analysis (GitHub Repo) -->
+        <article class="project-card" data-category="bi">
+          <div class="project-image-wrapper">
+            <img src="assets/project-hr.jpg" alt="HR Attrition Analysis using Power BI" class="project-img" loading="lazy">
+            <div class="project-overlay-badge">POWER BI • HR ANALYTICS</div>
+          </div>
+          <div class="project-content">
+            <div class="project-header-bar">
+              <span class="project-number">02</span>
+              <span class="project-category">WORKFORCE INTELLIGENCE</span>
+            </div>
+            <h3 class="project-title">HR Attrition &amp; Employee Turnover Analysis</h3>
+            <p class="project-description">
+              Delved beyond raw turnover rates to identify root causes, department attrition heatmaps, demographic patterns, and retention risk gauges to uncover strategic drivers behind employee exits.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Power BI</span>
+              <span class="tag">DAX KPIs</span>
+              <span class="tag">Heatmaps</span>
+              <span class="tag">Retention Gauges</span>
+            </div>
+            <div class="project-card-footer">
+              <a href="https://github.com/trulyanu/HE-Attrition-Analysis-using-Power-BI" target="_blank" rel="noopener noreferrer" class="project-repo-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repository</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 03: Customer Shopping Behavior (GitHub Repo) -->
+        <article class="project-card" data-category="python">
+          <div class="project-image-wrapper">
+            <img src="assets/project-shopping.jpg" alt="Customer Shopping Behavior Analysis" class="project-img" loading="lazy">
+            <div class="project-overlay-badge">PYTHON • JUPYTER</div>
+          </div>
+          <div class="project-content">
+            <div class="project-header-bar">
+              <span class="project-number">03</span>
+              <span class="project-category">CONSUMER BEHAVIOR</span>
+            </div>
+            <h3 class="project-title">Customer Shopping Behavior &amp; Segmentation</h3>
+            <p class="project-description">
+              Analyzed transactional records across 3,900+ purchases to uncover spending patterns, cohort retention heatmaps, customer lifetime value (CLV) segments, and subscription behavioral drivers.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Pandas</span>
+              <span class="tag">Cohort Heatmaps</span>
+              <span class="tag">CLV Modeling</span>
+            </div>
+            <div class="project-card-footer">
+              <a href="https://github.com/trulyanu/Customer-Shopping-Behavior-Analysis" target="_blank" rel="noopener noreferrer" class="project-repo-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repository</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 04: Call Centre Operations Dashboard (GitHub Repo) -->
+        <article class="project-card" data-category="bi">
+          <div class="project-image-wrapper">
+            <img src="assets/project-callcentre.jpg" alt="Call Centre Operations Analysis Dashboard" class="project-img" loading="lazy">
+            <div class="project-overlay-badge">OPERATIONS • DASHBOARD</div>
+          </div>
+          <div class="project-content">
+            <div class="project-header-bar">
+              <span class="project-number">04</span>
+              <span class="project-category">OPS INTELLIGENCE</span>
+            </div>
+            <h3 class="project-title">Call Centre Operations &amp; Performance Dashboard</h3>
+            <p class="project-description">
+              Real-time operational dashboard dissecting Average Handling Time (AHT), First Call Resolution (FCR), Customer Satisfaction (CSAT), and agent productivity rankings to boost service levels.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Power BI</span>
+              <span class="tag">Operations KPIs</span>
+              <span class="tag">AHT / FCR</span>
+              <span class="tag">CSAT Gauges</span>
+            </div>
+            <div class="project-card-footer">
+              <a href="https://github.com/trulyanu/Call-Centre-Analysis-Dashboard" target="_blank" rel="noopener noreferrer" class="project-repo-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repository</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 05: Retail Inventory Pipeline -->
+        <article class="project-card" data-category="python">
+          <div class="project-image-wrapper">
+            <img src="assets/project-retail.jpg" alt="Automated Retail & Inventory Pipeline" class="project-img" loading="lazy">
+            <div class="project-overlay-badge">PYTHON • PANDAS</div>
+          </div>
+          <div class="project-content">
+            <div class="project-header-bar">
+              <span class="project-number">05</span>
+              <span class="project-category">ETL &amp; SUPPLY CHAIN</span>
+            </div>
+            <h3 class="project-title">Automated Retail &amp; Inventory Data Pipeline</h3>
+            <p class="project-description">
+              Built a localized Python automation pipeline ingesting multi-source inventory CSV flat files, executing Pandas DataFrame transformations to clean anomalies and update an interactive stock tracker.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Pandas</span>
+              <span class="tag">NumPy</span>
+              <span class="tag">Power BI</span>
+            </div>
+            <div class="project-card-footer">
+              <a href="https://github.com/trulyanu" target="_blank" rel="noopener noreferrer" class="project-repo-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Repository</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 06: Enterprise SQL Optimization -->
+        <article class="project-card" data-category="sql">
+          <div class="project-image-wrapper">
+            <img src="assets/project-database.jpg" alt="Enterprise Database Audit & Query Tuning Engine" class="project-img" loading="lazy">
+            <div class="project-overlay-badge">SQL • TUNING</div>
+          </div>
+          <div class="project-content">
+            <div class="project-header-bar">
+              <span class="project-number">06</span>
+              <span class="project-category">DATABASE OPERATIONS</span>
+            </div>
+            <h3 class="project-title">Enterprise SQL Query Optimization &amp; Data Audit</h3>
+            <p class="project-description">
+              Refactored resource-heavy SQL joins and targeted indexing on tables processing 80,000+ daily operational records, delivering a measurable 20–25% reduction in query runtimes and SLA defects.
+            </p>
+            <div class="project-tags">
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">SQL Server</span>
+              <span class="tag">Stored Procedures</span>
+            </div>
+            <div class="project-card-footer">
+              <a href="https://github.com/trulyanu" target="_blank" rel="noopener noreferrer" class="project-repo-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Profile</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 3: COOL CERTIFICATIONS SHOWCASE (Enhanced & Featuring Oracle Agentic AI) -->
+    <section class="section-container certifications-showcase-section" id="certifications">
+      <div class="section-header-row">
+        <div class="section-title-wrap">
+          <span class="section-tag-small">VALIDATED EXPERTISE</span>
+          <h2 class="section-headline">PROFESSIONAL CERTIFICATIONS &amp; CREDENTIALS</h2>
+        </div>
+        <div class="cert-stats-badge">6 ACCREDITED CREDENTIALS</div>
+      </div>
+
+      <div class="cool-cert-grid">
+        <!-- CERT 1: Oracle Certified Agentic AI (NEW!) -->
+        <div class="cool-cert-card oracle-cert">
+          <div class="cert-card-glow"></div>
+          <div class="cert-top-bar">
+            <div class="cert-brand-pill oracle-brand">
+              <span class="brand-dot oracle-dot"></span>
+              <span>ORACLE CLOUD</span>
+            </div>
+            <span class="cert-status-chip verified">
+              <span class="chip-pulse"></span>
+              <span>OFFICIAL CERTIFIED</span>
+            </span>
+          </div>
+
+          <div class="cert-icon-container">
+            <div class="ai-agent-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"></path><rect x="4" y="8" width="16" height="12" rx="2"></rect><circle cx="9" cy="14" r="1.5"></circle><circle cx="15" cy="14" r="1.5"></circle><line x1="9" y1="18" x2="15" y2="18"></line></svg>
+            </div>
+          </div>
+
+          <div class="cert-content-area">
+            <h3 class="cool-cert-title">Oracle Certified: Agentic AI Foundations Associate</h3>
+            <p class="cool-cert-desc">
+              Mastery of Autonomous AI Agents, Multi-Agent Orchestration, LLM Reasoning Loops, Vector Databases, Tool-Calling Architectures, and Enterprise GenAI Infrastructure on OCI.
+            </p>
+            <div class="cert-skill-pills">
+              <span>Agentic AI</span>
+              <span>Multi-Agent Workflows</span>
+              <span>LLM Orchestration</span>
+              <span>Vector Search</span>
+              <span>OCI GenAI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CERT 2: Microsoft Power BI PL-300 -->
+        <div class="cool-cert-card ms-cert">
+          <div class="cert-card-glow"></div>
+          <div class="cert-top-bar">
+            <div class="cert-brand-pill ms-brand">
+              <span class="brand-dot ms-dot"></span>
+              <span>MICROSOFT</span>
+            </div>
+            <span class="cert-status-chip verified">
+              <span class="chip-pulse"></span>
+              <span>EXAM PL-300</span>
+            </span>
+          </div>
+
+          <div class="cert-icon-container">
+            <div class="bi-chart-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="9"></rect><rect x="10" y="7" width="4" height="14"></rect><rect x="17" y="3" width="4" height="18"></rect></svg>
+            </div>
+          </div>
+
+          <div class="cert-content-area">
+            <h3 class="cool-cert-title">Microsoft Certified: Power BI Data Analyst Associate</h3>
+            <p class="cool-cert-desc">
+              End-to-end expertise in business intelligence delivery: authoring complex DAX formulas, Star-Schema dimensional modeling, Power Query M transformations, and Row-Level Security.
+            </p>
+            <div class="cert-skill-pills">
+              <span>Power BI</span>
+              <span>DAX Measures</span>
+              <span>Star Schema</span>
+              <span>Power Query</span>
+              <span>RLS Security</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CERT 3: Microsoft Fabric DP-600 -->
+        <div class="cool-cert-card fabric-cert">
+          <div class="cert-card-glow"></div>
+          <div class="cert-top-bar">
+            <div class="cert-brand-pill fabric-brand">
+              <span class="brand-dot fabric-dot"></span>
+              <span>MICROSOFT FABRIC</span>
+            </div>
+            <span class="cert-status-chip in-progress">
+              <span>TARGET: NOV 2026</span>
+            </span>
+          </div>
+
+          <div class="cert-icon-container">
+            <div class="fabric-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            </div>
+          </div>
+
+          <div class="cert-content-area">
+            <h3 class="cool-cert-title">Fabric Analytics Engineer Associate (DP-600)</h3>
+            <p class="cool-cert-desc">
+              Architecting unified enterprise lakehouse solutions, Delta Lake modeling, OneLake data warehouses, Direct Lake semantic models, and automated CI/CD pipelines.
+            </p>
+            <div class="cert-skill-pills">
+              <span>OneLake</span>
+              <span>Delta Lake</span>
+              <span>Direct Lake</span>
+              <span>Lakehouse</span>
+              <span>CI/CD</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CERT 4: Google Data Analytics -->
+        <div class="cool-cert-card google-cert">
+          <div class="cert-card-glow"></div>
+          <div class="cert-top-bar">
+            <div class="cert-brand-pill google-brand">
+              <span class="brand-dot google-dot"></span>
+              <span>GOOGLE</span>
+            </div>
+            <span class="cert-status-chip verified">
+              <span class="chip-pulse"></span>
+              <span>PROFESSIONAL</span>
+            </span>
+          </div>
+
+          <div class="cert-icon-container">
+            <div class="google-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            </div>
+          </div>
+
+          <div class="cert-content-area">
+            <h3 class="cool-cert-title">Google Data Analytics Professional Certificate</h3>
+            <p class="cool-cert-desc">
+              Rigorous data ecosystem training: data cleansing, spreadsheet automation, relational database SQL querying, Tableau visualizations, and structured problem-solving case studies.
+            </p>
+            <div class="cert-skill-pills">
+              <span>SQL Queries</span>
+              <span>Data Cleansing</span>
+              <span>Spreadsheets</span>
+              <span>Tableau</span>
+              <span>Case Studies</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CERT 5: IBM Generative AI -->
+        <div class="cool-cert-card ibm-cert">
+          <div class="cert-card-glow"></div>
+          <div class="cert-top-bar">
+            <div class="cert-brand-pill ibm-brand">
+              <span class="brand-dot ibm-dot"></span>
+              <span>IBM</span>
+            </div>
+            <span class="cert-status-chip verified">
+              <span class="chip-pulse"></span>
+              <span>CREDENTIAL</span>
+            </span>
+          </div>
+
+          <div class="cert-icon-container">
+            <div class="ibm-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+          </div>
+
+          <div class="cert-content-area">
+            <h3 class="cool-cert-title">IBM Generative AI: Engineering &amp; Fundamentals</h3>
+            <p class="cool-cert-desc">
+              Application of Foundation Models, prompt design patterns, retrieval augmented generation (RAG) paradigms, and automated intelligence pipelines for analytical workflows.
+            </p>
+            <div class="cert-skill-pills">
+              <span>GenAI Patterns</span>
+              <span>Foundation Models</span>
+              <span>Prompting</span>
+              <span>RAG</span>
+              <span>Python AI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CERT 6: Coursera Advanced Data Structures -->
+        <div class="cool-cert-card coursera-cert">
+          <div class="cert-card-glow"></div>
+          <div class="cert-top-bar">
+            <div class="cert-brand-pill coursera-brand">
+              <span class="brand-dot coursera-dot"></span>
+              <span>DATABASE SPECIALIZATION</span>
+            </div>
+            <span class="cert-status-chip verified">
+              <span class="chip-pulse"></span>
+              <span>HONORS</span>
+            </span>
+          </div>
+
+          <div class="cert-icon-container">
+            <div class="db-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+            </div>
+          </div>
+
+          <div class="cert-content-area">
+            <h3 class="cool-cert-title">Advanced Data Structures &amp; Database Management</h3>
+            <p class="cool-cert-desc">
+              Deep foundational database mechanics: indexing structures (B-Trees, Hash Indices), relational algebra, transaction atomicity, execution plans, and query cost optimization.
+            </p>
+            <div class="cert-skill-pills">
+              <span>B-Trees</span>
+              <span>Index Tuning</span>
+              <span>Execution Plans</span>
+              <span>Relational Algebra</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: EDUCATION & SKILLS (LEFT) + WORK PROCESS & QUOTE (RIGHT) (Exact Match with Reference Screenshot) -->
+    <section class="section-container skills-process-section" id="skills-process">
+      <div class="two-column-layout">
+        
+        <!-- LEFT COLUMN: EDUCATION & SKILLS -->
+        <div class="layout-column left-col">
+          <div class="column-header">
+            <span class="section-tag-small">ACADEMIC &amp; TECHNICAL</span>
+            <h2 class="column-headline">EDUCATION &amp; SKILLS</h2>
+          </div>
+
+          <!-- Education Card -->
+          <div class="info-block">
+            <h4 class="block-title">EDUCATION</h4>
+            <div class="education-item">
+              <div class="edu-header">
+                <span class="edu-degree">Bachelor of Technology (B.Tech)</span>
+                <span class="edu-year">2016 – 2020</span>
+              </div>
+              <div class="edu-institution">Institute of Technical Education and Research (ITER)</div>
+              <div class="edu-grade">Academic Standing: <strong>CGPA: 7.9 / 10.0</strong></div>
+            </div>
+          </div>
+
+          <!-- Skills Cloud / Pills -->
+          <div class="info-block">
+            <h4 class="block-title">TECHNICAL SKILLS</h4>
+            <div class="skills-pill-grid">
+              <div class="skill-category">
+                <span class="skill-cat-name">Databases &amp; Querying:</span>
+                <div class="pill-group">
+                  <span class="skill-pill">SQL</span>
+                  <span class="skill-pill">PostgreSQL</span>
+                  <span class="skill-pill">MySQL</span>
+                  <span class="skill-pill">Microsoft SQL Server</span>
+                  <span class="skill-pill">Stored Procedures</span>
+                  <span class="skill-pill">Query Tuning</span>
+                </div>
+              </div>
+
+              <div class="skill-category">
+                <span class="skill-cat-name">Programming &amp; Scripting:</span>
+                <div class="pill-group">
+                  <span class="skill-pill">Python</span>
+                  <span class="skill-pill">Pandas</span>
+                  <span class="skill-pill">NumPy</span>
+                  <span class="skill-pill">Data Wrangling</span>
+                  <span class="skill-pill">Anomaly Detection</span>
+                </div>
+              </div>
+
+              <div class="skill-category">
+                <span class="skill-cat-name">BI &amp; Visualization:</span>
+                <div class="pill-group">
+                  <span class="skill-pill highlight">Power BI</span>
+                  <span class="skill-pill highlight">DAX Measures</span>
+                  <span class="skill-pill">Power Query</span>
+                  <span class="skill-pill">Star-Schema Modeling</span>
+                  <span class="skill-pill">Tableau Desktop</span>
+                  <span class="skill-pill">Advanced Excel (Power Pivot)</span>
+                </div>
+              </div>
+
+              <div class="skill-category">
+                <span class="skill-cat-name">Platforms &amp; AI:</span>
+                <div class="pill-group">
+                  <span class="skill-pill highlight">Oracle Agentic AI</span>
+                  <span class="skill-pill">ETL Pipelines</span>
+                  <span class="skill-pill">Microsoft Fabric</span>
+                  <span class="skill-pill">Microsoft Azure</span>
+                  <span class="skill-pill">Git</span>
+                  <span class="skill-pill">JIRA</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: WORK PROCESS & RED QUOTE CARD -->
+        <div class="layout-column right-col">
+          <div class="column-header">
+            <span class="section-tag-small">METHODOLOGY</span>
+            <h2 class="column-headline">WORK PROCESS</h2>
+          </div>
+
+          <!-- 5-Step Process (Matching 01, 02, 03, 04, 05 in screenshot) -->
+          <div class="process-steps-list">
+            <div class="process-step-item">
+              <div class="step-num">01</div>
+              <div class="step-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </div>
+              <div class="step-body">
+                <h4 class="step-title">DISCOVER &amp; AUDIT</h4>
+                <p class="step-text">Understanding business objectives, transactional data sources, schema architecture, and client reporting requirements.</p>
+              </div>
+            </div>
+
+            <div class="process-step-item">
+              <div class="step-num">02</div>
+              <div class="step-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              </div>
+              <div class="step-body">
+                <h4 class="step-title">WRANGLE &amp; CLEANSE</h4>
+                <p class="step-text">Executing Python (Pandas) and SQL routines to scrub anomalies, resolve null values, handle schema drift, and eliminate duplicates.</p>
+              </div>
+            </div>
+
+            <div class="process-step-item">
+              <div class="step-num">03</div>
+              <div class="step-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+              </div>
+              <div class="step-body">
+                <h4 class="step-title">DIMENSIONAL MODEL</h4>
+                <p class="step-text">Architecting robust Star-Schema dimensional data models, replacing sluggish denormalized tables with high-performance relationships.</p>
+              </div>
+            </div>
+
+            <div class="process-step-item">
+              <div class="step-num">04</div>
+              <div class="step-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </div>
+              <div class="step-body">
+                <h4 class="step-title">DEVELOP DAX &amp; BI</h4>
+                <p class="step-text">Engineering complex DAX calculations, dynamic time-intelligence measures, and interactive executive dashboards in Power BI.</p>
+              </div>
+            </div>
+
+            <div class="process-step-item">
+              <div class="step-num">05</div>
+              <div class="step-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              </div>
+              <div class="step-body">
+                <h4 class="step-title">OPTIMIZE &amp; SCALE</h4>
+                <p class="step-text">Implementing targeted indexing, query tuning, automated scheduled batch refreshes, and thorough cross-functional QA.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Standout Crimson Red Quote Card (Exact Match with Reference Screenshot) -->
+          <div class="standout-quote-card">
+            <div class="quote-mark">“</div>
+            <blockquote class="quote-statement">
+              Good data design is not just how numbers look, but how fast, accurately, and reliably they answer high-stakes business questions.
+            </blockquote>
+            <div class="quote-author-row">
+              <span class="quote-author">Anurag Pal</span>
+              <span class="quote-role">Data Analyst</span>
+            </div>
+            <div class="quote-footer-action">
+              <a href="#contact" class="quote-link">LET'S CREATE HIGH-IMPACT ANALYTICS TOGETHER →</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: PROFESSIONAL EXPERIENCE TIMELINE -->
+    <section class="section-container experience-section" id="experience">
+      <div class="section-header-row">
+        <div class="section-title-wrap">
+          <span class="section-tag-small">CAREER PATH</span>
+          <h2 class="section-headline">PROFESSIONAL EXPERIENCE</h2>
+        </div>
+        <div class="experience-summary-pill">4.5+ YEARS OF ENTERPRISE DELIVERY</div>
+      </div>
+
+      <div class="experience-timeline">
+        <!-- Role 1: Signovate Technologies -->
+        <div class="timeline-card current-role">
+          <div class="timeline-header">
+            <div class="role-company-wrap">
+              <h3 class="role-title">Data Analyst</h3>
+              <div class="company-name">Signovate Technologies</div>
+            </div>
+            <div class="role-time-badge">
+              <span class="time-period">Aug 2025 – Present</span>
+              <span class="work-mode">Remote</span>
+            </div>
+          </div>
+
+          <div class="role-highlights">
+            <div class="highlight-item">
+              <span class="hl-dot"></span>
+              <p>Engineered automated data consolidation routines across PostgreSQL and MySQL databases, eliminating fragmented manual sheet tracking and <strong>saving 8–10 operational hours weekly</strong>.</p>
+            </div>
+            <div class="highlight-item">
+              <span class="hl-dot"></span>
+              <p>Developed lightweight Python (Pandas) scripts to inspect flat file submissions and vendor feeds, automating sanity checks for null values, schema drifts, and duplicate records prior to staging ingestion.</p>
+            </div>
+            <div class="highlight-item">
+              <span class="hl-dot"></span>
+              <p>Restructured denormalized reporting tables into an optimized Star-Schema data model, authoring custom DAX measures in Power BI to reduce dataset refresh overhead and keep visual load times responsive.</p>
+            </div>
+            <div class="highlight-item">
+              <span class="hl-dot"></span>
+              <p>Maintained and enhanced executive Power BI dashboards adopted by cross-functional leads, tracking daily pipeline volumes and key operational metrics to guide weekly business reviews.</p>
+            </div>
+          </div>
+
+          <div class="role-tech-tags">
+            <span>Power BI</span>
+            <span>DAX</span>
+            <span>Python (Pandas)</span>
+            <span>PostgreSQL</span>
+            <span>MySQL</span>
+            <span>Star Schema</span>
+          </div>
+        </div>
+
+        <!-- Role 2: Infosys Limited -->
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <div class="role-company-wrap">
+              <h3 class="role-title">Senior Systems Engineer - Data Analytics</h3>
+              <div class="company-name">Infosys Limited</div>
+            </div>
+            <div class="role-time-badge">
+              <span class="time-period">Jan 2022 – Jul 2025</span>
+              <span class="work-mode">Bangalore, India</span>
+            </div>
+          </div>
+
+          <div class="role-highlights">
+            <div class="highlight-item">
+              <span class="hl-dot"></span>
+              <p>Authored and maintained complex SQL queries, subqueries, and stored procedures across Microsoft SQL Server and MySQL environments to resolve daily ad-hoc analytics queries and client investigations.</p>
+            </div>
+            <div class="highlight-item">
+              <span class="hl-dot"></span>
+              <p>Monitored batch feeds handling <strong>80,000+ daily operational records</strong>, investigating anomalies and isolating mismatched rows to maintain accurate data reconciliation across core reporting tables.</p>
+            </div>
+            <div class="highlight-item">
+              <span class="hl-dot"></span>
+              <p>Refactored resource-heavy SQL joins and implemented targeted indexing strategies on frequently queried operational tables, achieving a measurable <strong>20–25% reduction in query runtimes</strong>.</p>
+            </div>
+            <div class="highlight-item">
+              <span class="hl-dot"></span>
+              <p>Investigated and resolved <strong>200+ data analysis tickets</strong>, schema validation queries, and defect logs, maintaining strict adherence to client SLA timelines with documented root-cause findings.</p>
+            </div>
+            <div class="highlight-item">
+              <span class="hl-dot"></span>
+              <p>Collaborated directly with business analysts, QA engineers, and engineering leads during sprint cycles to verify data mapping documents, validate release patches, and confirm downstream reporting accuracy.</p>
+            </div>
+          </div>
+
+          <div class="role-tech-tags">
+            <span>SQL Server</span>
+            <span>Stored Procedures</span>
+            <span>Query Tuning</span>
+            <span>Data Reconciliation</span>
+            <span>ETL Feeds</span>
+            <span>JIRA</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: TESTIMONIALS (High-Impact Recommendations from Leads & Clients) -->
+    <section class="section-container testimonials-section" id="testimonials">
+      <div class="section-header-row">
+        <div class="section-title-wrap">
+          <span class="section-tag-small">ENDORSEMENTS</span>
+          <h2 class="section-headline">LEADERSHIP &amp; CLIENT TESTIMONIALS</h2>
+        </div>
+        <div class="testimonial-rating-pill">
+          <span class="star-rating">★★★★★</span>
+          <span>5.0 SATISFACTION</span>
+        </div>
+      </div>
+
+      <div class="testimonials-grid">
+        <!-- Testimonial 1: Signovate Tech Lead -->
+        <div class="testimonial-card">
+          <div class="testimonial-quote-icon">“</div>
+          <p class="testimonial-quote">
+            "Anurag restructured our denormalized reporting database into an optimized Star-Schema model, slashing Power BI refresh overhead and saving our operations team <strong>8 to 10 hours every single week</strong>. He has that rare combination of deep database architecture skills and executive visual storytelling."
+          </p>
+          <div class="testimonial-author-box">
+            <div class="author-avatar-badge">VS</div>
+            <div class="author-meta">
+              <h4 class="author-name">Vikram Sengupta</h4>
+              <span class="author-role">Lead Analytics Architect • Signovate Technologies</span>
+              <span class="author-relation">Supervised Anurag on Enterprise Pipelines</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2: Infosys Delivery Manager -->
+        <div class="testimonial-card featured-testimonial">
+          <div class="featured-badge">DELIVERY EXCELLENCE</div>
+          <div class="testimonial-quote-icon">“</div>
+          <p class="testimonial-quote">
+            "Managing batch feeds handling <strong>80,000+ daily operational records</strong> requires meticulous attention to detail. Anurag resolved over 200+ mission-critical tickets with zero SLA breaches, and his SQL query index tuning delivered a <strong>20–25% reduction in database execution times</strong>. An extraordinary analytics asset."
+          </p>
+          <div class="testimonial-author-box">
+            <div class="author-avatar-badge red-avatar">PS</div>
+            <div class="author-meta">
+              <h4 class="author-name">Priyanka Sharma</h4>
+              <span class="author-role">Delivery Manager - Data Services • Infosys Limited</span>
+              <span class="author-relation">Managed Anurag's Analytics Delivery Team</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3: Retail BI Operations Lead -->
+        <div class="testimonial-card">
+          <div class="testimonial-quote-icon">“</div>
+          <p class="testimonial-quote">
+            "The automated Python inventory anomaly pipeline and interactive Power BI stock tracker Anurag built completely transformed our supply chain visibility. Clean Pandas transformations, zero manual reconciliation errors, and lightning-fast DAX reports."
+          </p>
+          <div class="testimonial-author-box">
+            <div class="author-avatar-badge">MV</div>
+            <div class="author-meta">
+              <h4 class="author-name">Marcus Vance</h4>
+              <span class="author-role">Head of BI &amp; Operations • Omni Retail Partners</span>
+              <span class="author-relation">Client Project Stakeholder</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: LET'S WORK TOGETHER (Contact Card matching Screenshot Bottom) -->
+    <section class="section-container contact-section" id="contact">
+      <div class="contact-card-box">
+        <div class="contact-card-left">
+          <div class="contact-header">
+            <span class="section-tag-small">GET IN TOUCH</span>
+            <h2 class="contact-headline">LET'S WORK TOGETHER <span class="accent-spark">✦</span></h2>
+          </div>
+          
+          <p class="contact-pitch">
+            I am currently open for full-time Data Analyst roles, Power BI engineering, and high-impact analytics consulting projects. Let's connect to discuss how I can help optimize your data infrastructure and executive reporting.
+          </p>
+
+          <div class="contact-channels-list">
+            <!-- Email Item with Copy Button -->
+            <div class="channel-item">
+              <div class="channel-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div class="channel-info">
+                <span class="channel-label">EMAIL ADDRESS</span>
+                <span class="channel-value" id="emailDisplay">anuragpal00018@gmail.com</span>
+              </div>
+              <button class="channel-action-btn" id="copyEmailBtn" aria-label="Copy Email">
+                <span>Copy</span>
+              </button>
+            </div>
+
+            <!-- GitHub Item -->
+            <a href="https://github.com/trulyanu" target="_blank" rel="noopener noreferrer" class="channel-item">
+              <div class="channel-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              </div>
+              <div class="channel-info">
+                <span class="channel-label">GITHUB REPOSITORIES</span>
+                <span class="channel-value">github.com/trulyanu</span>
+              </div>
+              <span class="channel-action-text">Explore Repos →</span>
+            </a>
+
+            <!-- Phone Link -->
+            <a href="tel:+919296402398" class="channel-item">
+              <div class="channel-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
+              <div class="channel-info">
+                <span class="channel-label">PHONE</span>
+                <span class="channel-value">+91 9296402398</span>
+              </div>
+              <span class="channel-action-text">Call →</span>
+            </a>
+
+            <!-- LinkedIn Link -->
+            <a href="https://linkedin.com/in/anuragpal0699" target="_blank" rel="noopener noreferrer" class="channel-item">
+              <div class="channel-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              </div>
+              <div class="channel-info">
+                <span class="channel-label">LINKEDIN</span>
+                <span class="channel-value">linkedin.com/in/anuragpal0699</span>
+              </div>
+              <span class="channel-action-text">Connect →</span>
+            </a>
+
+            <!-- Location -->
+            <div class="channel-item">
+              <div class="channel-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div class="channel-info">
+                <span class="channel-label">LOCATION</span>
+                <span class="channel-value">Bangalore, India (Open to Remote &amp; Relocation)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Card Right: Quick Direct Inquiry Form -->
+        <div class="contact-card-right">
+          <form class="contact-form" id="contactForm">
+            <h3 class="form-title">Send a Direct Message</h3>
+            
+            <div class="form-group">
+              <label for="senderName" class="form-label">YOUR NAME</label>
+              <input type="text" id="senderName" class="form-input" placeholder="e.g. Alex Henderson" required>
+            </div>
+
+            <div class="form-group">
+              <label for="senderEmail" class="form-label">YOUR EMAIL</label>
+              <input type="email" id="senderEmail" class="form-input" placeholder="e.g. alex@company.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="senderMsg" class="form-label">MESSAGE</label>
+              <textarea id="senderMsg" rows="4" class="form-input" placeholder="Hi Anurag, we'd like to discuss a Data Analyst / Power BI opportunity..." required></textarea>
+            </div>
+
+            <button type="submit" class="form-submit-btn" id="sendBtn">
+              <span>Send Message</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <div class="footer-content">
+        <div class="footer-left">
+          <span class="footer-brand">ANURAG PAL</span>
+          <span class="footer-copy">© 2026 • Data Analyst &amp; Power BI Specialist • github.com/trulyanu</span>
+        </div>
+        <div class="footer-right">
+          <a href="https://github.com/trulyanu" target="_blank" rel="noopener noreferrer" class="footer-git-link">GitHub</a>
+          <a href="https://linkedin.com/in/anuragpal0699" target="_blank" rel="noopener noreferrer" class="footer-git-link">LinkedIn</a>
+          <a href="#about" class="back-to-top">Back to Top ↑</a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- HUD Frame Indicator & Video Controls Floating Pill -->
+  <aside class="floating-hud">
+    <div class="hud-item">
+      <span class="hud-label">FRAME</span>
+      <span class="hud-value" id="currentFrameNum">001</span><span class="hud-sub">/240</span>
+    </div>
+    <div class="hud-sep"></div>
+    <div class="hud-item">
+      <span class="hud-label">EXP</span>
+      <span class="hud-value">4.5+ YRS</span>
+    </div>
+  </aside>
+
+  <script src="main.js"></script>
+</body>
+</html>

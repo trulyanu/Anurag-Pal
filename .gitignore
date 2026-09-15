@@ -1,0 +1,12 @@
+# Large archive (frames already extracted in /frames)
+video_frames_24fps_png.zip
+
+# OS temporary files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# Local logs
+*.log
