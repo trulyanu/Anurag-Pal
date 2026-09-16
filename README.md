@@ -1,4 +1,4 @@
-# Anurag Pal - Creative Data Analyst & Power BI Portfolio
+# Anurag Pal - Creative Data Analyst & Power BI Portfolio | https://anurag-pal.vercel.app/
 
 A high-performance, scroll-driven interactive portfolio website for **Anurag Pal**, featuring 240-frame canvas scrubbing, live project showcases, GitHub repositories, and interactive certifications.
 
